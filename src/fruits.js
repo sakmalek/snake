@@ -6,6 +6,12 @@ class Fruits {
     }
 
     draw() {
-        rect(this.x, this.y, UNIT - 6, UNIT - 6);
+        fill('blue')
+        rect(this.x, this.y, UNIT - 2, UNIT - 2);
+    }
+
+    setPosition() {
+        this.x = Math.floor((Math.random() * WIDTH) / UNIT) * UNIT;
+        this.y = Math.floor((Math.random() * HEIGHT) / UNIT) * UNIT;
     }
 }

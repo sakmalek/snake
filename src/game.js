@@ -15,25 +15,37 @@ class Game {
         if (frameCount % this.frameCount === 0 && this.canPlay) {
             clear();
             this.snake.draw();
-            if (this.collision()) this.fruit.draw();
-            this.updateScreen()
+            this.fruit.draw();
+            this.collisions();
+            this.updateScreen();
         }
     }
 
-    collision() {
-        const lastIndex = game.snake.snakeUnits.length - 1;
-        if (game.snake.snakeUnits[lastIndex].x === game.fruit.x && game.snake.snakeUnits[lastIndex].y === game.fruit.y) {
+    collisions() {
+        this.isCollisionWithFruit();
+        this.isSelfCollision();
+    }
+
+    isCollisionWithFruit() {
+        const lastIndex = this.snake.snakeUnits.length - 1;
+        if (this.snake.snakeUnits[lastIndex].x === this.fruit.x && this.snake.snakeUnits[lastIndex].y === this.fruit.y) {
             this.snake.grow();
-            this.score++
-            return true
+            this.fruit.setPosition()
+            this.increaseScore();
         }
-        const arr = game.snake.snakeUnits.filter(obj => obj.x === game.snake.snakeUnits[lastIndex].x &&
-            obj.y === game.snake.snakeUnits[lastIndex].y)
-        if (arr.length > 1) {
+    }
+
+    isSelfCollision() {
+        const lastIndex = this.snake.snakeUnits.length - 1;
+        const CollisionArr = this.snake.snakeUnits.filter(obj =>
+            obj.x === this.snake.snakeUnits[lastIndex].x && obj.y === this.snake.snakeUnits[lastIndex].y);
+        if (CollisionArr.length > 1) {
             this.gameOver();
-            return true
         }
-        return false
+    }
+
+    updateScreen() {
+        document.querySelector('span#score').innerText = this.score;
     }
 
     gameOver() {
@@ -41,7 +53,7 @@ class Game {
         this.updateScreen();
     }
 
-    updateScreen() {
-        document.querySelector('span#score').innerText = this.score;
+    increaseScore() {
+        this.score++;
     }
 }
