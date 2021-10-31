@@ -37,6 +37,10 @@ class Snake {
                 fill('grey');
                 rect(this.snakeUnits[i].x, this.snakeUnits[i].y, UNIT - 2, UNIT - 2);
 
+            } else if (i === 0) {
+                fill('yellow');
+                rect(this.snakeUnits[i].x, this.snakeUnits[i].y, UNIT - 2, UNIT - 2);
+
             } else {
                 fill('black');
                 rect(this.snakeUnits[i].x, this.snakeUnits[i].y, UNIT - 2, UNIT - 2);
@@ -57,19 +61,19 @@ class Snake {
     }
 
     moveUp() {
-        this.direction = DIRECTION.UP;
+        if (!(this.direction === DIRECTION.DOWN)) this.direction = DIRECTION.UP;
     }
 
     moveDown() {
-        this.direction = DIRECTION.DOWN;
+        if (!(this.direction === DIRECTION.UP)) this.direction = DIRECTION.DOWN;
     }
 
     moveRight() {
-        this.direction = DIRECTION.RIGHT;
+        if (!(this.direction === DIRECTION.LEFT)) this.direction = DIRECTION.RIGHT;
     }
 
     moveLeft() {
-        this.direction = DIRECTION.LEFT;
+        if (!(this.direction === DIRECTION.RIGHT)) this.direction = DIRECTION.LEFT;
     }
 }
 
