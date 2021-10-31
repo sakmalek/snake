@@ -27,6 +27,18 @@ class Game {
             this.score++
             return true
         }
+        const arr = game.snake.snakeUnits.filter(obj => obj.x === game.snake.snakeUnits[lastIndex].x &&
+            obj.y === game.snake.snakeUnits[lastIndex].y)
+        if (arr.length > 1) {
+            this.gameOver();
+            return true
+        }
+        return false
+    }
+
+    gameOver() {
+        this.canPlay = false;
+        this.updateScreen();
     }
 
     updateScreen() {
