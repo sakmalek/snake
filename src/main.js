@@ -33,5 +33,6 @@ function keyPressed() {
     if (keyCode === 32) {
         // ARROW LEFT
         game.canPlay = !game.canPlay;
+        document.querySelector('span#game-over').innerText = '';
     }
 }

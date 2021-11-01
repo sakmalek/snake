@@ -1,7 +1,7 @@
 class Game {
 
     constructor() {
-        this.frameCount = 10;
+        this.frameCount = 12;
         this.canPlay = true;
         this.score = 0;
     }
@@ -16,12 +16,13 @@ class Game {
             clear();
             this.snake.draw();
             this.fruit.draw();
-            this.collisions();
+            this.checkCollisions();
             this.updateScreen();
+            this.canPlay && this.adjustSpeed();
         }
     }
 
-    collisions() {
+    checkCollisions() {
         this.isCollisionWithFruit();
         this.isSelfCollision();
     }
@@ -50,10 +51,38 @@ class Game {
 
     gameOver() {
         this.canPlay = false;
-        this.updateScreen();
+        this.changeBodyBackGroundImage('bg_broken_nokia.jpg')
+        document.querySelector('span#game-over').innerText = 'GAME OVER!';
     }
 
     increaseScore() {
         this.score++;
+    }
+
+    adjustSpeed() {
+        if (this.score < 15) {
+            this.frameCount = 12;
+            this.changeBodyBackGroundImage('bg_snake_logo.png')
+        }
+        if (this.score >= 15) {
+            this.frameCount = 10;
+            this.changeBodyBackGroundImage('bg_nokia.jpg')
+        }
+        if (this.score >= 25) {
+            this.frameCount = 8;
+            this.changeBodyBackGroundImage('bg_snake_logo.png')
+        }
+        if (this.score >= 35) {
+            this.frameCount = 6;
+            this.changeBodyBackGroundImage('bg_nokia.jpg')
+        }
+        if (this.score >= 45) {
+            this.frameCount = 4;
+            this.changeBodyBackGroundImage('bg_snake_logo.png')
+        }
+    }
+
+    changeBodyBackGroundImage(img) {
+        document.body.style.backgroundImage = `url(/assets/${img})`;
     }
 }

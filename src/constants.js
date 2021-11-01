@@ -1,5 +1,5 @@
-const HEIGHT = 250;
-const WIDTH = 300;
+const HEIGHT = 100;
+const WIDTH = 150;
 const UNIT = 10;
 
 const DIRECTION = {

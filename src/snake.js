@@ -2,9 +2,9 @@ class Snake {
     constructor() {
         this.direction = DIRECTION.RIGHT;
         this.snakeUnits = [
-            {'x': 10, 'y': 100},
-            {'x': 20, 'y': 100},
-            {'x': 30, 'y': 100},
+            {'x': 10, 'y': 50},
+            {'x': 20, 'y': 50},
+            {'x': 30, 'y': 50},
         ]
     }
 
@@ -30,29 +30,21 @@ class Snake {
                 this.snakeUnits[lastIndex].x -= UNIT;
                 break;
         }
+        // go through the wall is enabled // TOBE IMPROVED!!
+        if (this.snakeUnits[lastIndex].x >= WIDTH) this.snakeUnits[lastIndex].x = 0;
+        if (this.snakeUnits[lastIndex].x < 0) this.snakeUnits[lastIndex].x = WIDTH;
+        if (this.snakeUnits[lastIndex].y >= HEIGHT) this.snakeUnits[lastIndex].y = 0;
+        if (this.snakeUnits[lastIndex].y < 0) this.snakeUnits[lastIndex].y = HEIGHT;
         // draw
         for (let i = lastIndex; i >= 0; i--) {
-
             if (i === lastIndex) {
-                fill('grey');
-                rect(this.snakeUnits[i].x, this.snakeUnits[i].y, UNIT - 2, UNIT - 2);
-
+                this.genSnakeUnit(i, true, false);
             } else if (i === 0) {
-                fill('yellow');
-                rect(this.snakeUnits[i].x, this.snakeUnits[i].y, UNIT - 2, UNIT - 2);
-
+                this.genSnakeUnit(i, false, true);
             } else {
-                fill('black');
-                rect(this.snakeUnits[i].x, this.snakeUnits[i].y, UNIT - 2, UNIT - 2);
-
+                this.genSnakeUnit(i, false, false);
             }
-
         }
-        // go through the wall is enabled
-        if (this.snakeUnits[lastIndex].x > WIDTH) this.snakeUnits[lastIndex].x = 0;
-        if (this.snakeUnits[lastIndex].x < 0) this.snakeUnits[lastIndex].x = WIDTH;
-        if (this.snakeUnits[lastIndex].y > HEIGHT) this.snakeUnits[lastIndex].y = 0;
-        if (this.snakeUnits[lastIndex].y < 0) this.snakeUnits[lastIndex].y = HEIGHT;
     }
 
     grow() {
@@ -74,6 +66,14 @@ class Snake {
 
     moveLeft() {
         if (!(this.direction === DIRECTION.RIGHT)) this.direction = DIRECTION.LEFT;
+    }
+
+    genSnakeUnit(i, isHead, isTail) {
+        stroke(60);
+        rect(this.snakeUnits[i].x, this.snakeUnits[i].y, 1, 1);
+        isTail || rect(this.snakeUnits[i].x, this.snakeUnits[i].y + 3, 1, 1);
+        rect(this.snakeUnits[i].x + 3, this.snakeUnits[i].y, 1, 1);
+        isHead || rect(this.snakeUnits[i].x + 3, this.snakeUnits[i].y + 3, 1, 1);
     }
 }
 
