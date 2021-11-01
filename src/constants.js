@@ -8,3 +8,10 @@ const DIRECTION = {
     RIGHT: 'right',
     LEFT: 'left'
 }
+
+const DEFAULT_SNAKE_UNIT =
+    [
+        {'x': 10, 'y': 50},
+        {'x': 20, 'y': 50},
+        {'x': 30, 'y': 50},
+    ];
