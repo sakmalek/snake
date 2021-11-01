@@ -65,11 +65,12 @@ class Snake {
     }
 
     genSnakeUnit(i, isHead, isTail) {
+        const pixelSize = 1;
         stroke(60);
-        rect(this.snakeUnits[i].x, this.snakeUnits[i].y, 1, 1);
-        isTail || rect(this.snakeUnits[i].x, this.snakeUnits[i].y + 3, 1, 1);
-        rect(this.snakeUnits[i].x + 3, this.snakeUnits[i].y, 1, 1);
-        isHead || rect(this.snakeUnits[i].x + 3, this.snakeUnits[i].y + 3, 1, 1);
+        rect(this.snakeUnits[i].x, this.snakeUnits[i].y, pixelSize, pixelSize);
+        isTail || rect(this.snakeUnits[i].x, this.snakeUnits[i].y + 3, pixelSize, pixelSize);
+        rect(this.snakeUnits[i].x + 3, this.snakeUnits[i].y, pixelSize, pixelSize);
+        isHead || rect(this.snakeUnits[i].x + 3, this.snakeUnits[i].y + 3, pixelSize, pixelSize);
     }
 }
 

@@ -9,7 +9,6 @@ class Fruits {
     draw() {
         stroke('black')
         this.genFruit();
-
     }
 
     setPosition() {
@@ -21,15 +20,15 @@ class Fruits {
             this.x = x;
             this.y = y;
         }
-
     }
 
     genFruit() {
-        rect(this.x, this.y, 1, 1)
-        rect(this.x + 3, this.y, 1, 1)
-        rect(this.x + 6, this.y, 1, 1)
-        rect(this.x, this.y + 3, 1, 1)
-        rect(this.x + 3, this.y + 3, 1, 1)
-        rect(this.x - 3, this.y + 3, 1, 1)
+        const pixelSize = 1;
+        rect(this.x, this.y, pixelSize, pixelSize)
+        rect(this.x + 3, this.y, pixelSize, pixelSize)
+        rect(this.x + 6, this.y, pixelSize, pixelSize)
+        rect(this.x, this.y + 3, pixelSize, pixelSize)
+        rect(this.x + 3, this.y + 3, pixelSize, pixelSize)
+        rect(this.x - 3, this.y + 3, pixelSize, pixelSize)
     }
 }

@@ -34,5 +34,4 @@ function keyPressed() {
             game.resetSetting();
         }
     }
-
 }
