@@ -15,9 +15,12 @@ class Fruits {
     setPosition() {
         const x = Math.floor((Math.random() * WIDTH) / UNIT) * UNIT;
         const y = Math.floor((Math.random() * HEIGHT) / UNIT) * UNIT;
-
-        this.x = x;
-        this.y = y;
+        if (this.snake.snakeUnits.filter(unit => unit.x === x && unit.y === y).length > 0) {
+            this.setPosition();
+        } else {
+            this.x = x;
+            this.y = y;
+        }
 
     }
 
