@@ -1,8 +1,9 @@
 class Fruits {
 
-    constructor() {
+    constructor(snake) {
         this.x = 50;
         this.y = 50;
+        this.snake = snake;
     }
 
     draw() {
@@ -12,8 +13,13 @@ class Fruits {
     }
 
     setPosition() {
-        this.x = Math.floor((Math.random() * WIDTH) / UNIT) * UNIT;
-        this.y = Math.floor((Math.random() * HEIGHT) / UNIT) * UNIT;
+        const x = Math.floor((Math.random() * WIDTH) / UNIT) * UNIT;
+        const y = Math.floor((Math.random() * HEIGHT) / UNIT) * UNIT;
+        console.log(this.snake.snakeUnits.filter(unit => unit.x === x && unit.y === y).length)
+
+
+        this.x = x;
+        this.y = y;
 
     }
 

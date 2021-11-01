@@ -1,8 +1,4 @@
-let game = new Game();
-
-function preload() {
-
-}
+const game = new Game();
 
 function setup() {
     createCanvas(WIDTH, HEIGHT);
@@ -30,9 +26,13 @@ function keyPressed() {
         // ARROW LEFT
         game.snake.moveLeft()
     }
+
     if (keyCode === 32) {
         // ARROW LEFT
         game.canPlay = !game.canPlay;
-        document.querySelector('span#game-over').innerText = '';
+        if (game.isGameOver) {
+            game.resetSetting();
+        }
     }
+
 }

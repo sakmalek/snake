@@ -3,8 +3,7 @@ body {
     width: 100vw;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
     background-image: url("/assets/bg_snake_logo.png");
     background-size: 50px;
 
@@ -28,5 +27,19 @@ canvas {
     height: 40px;
     width: 150px;
     text-align: center;
+    font-size: 12px;
+    font-variant-caps: unicase;
+}
+
+#restart {
+    color: #cecece;
+    font-weight: 200;
+    font-size: 7px;
+    font-variant-caps: initial;
+}
+
+#game-over {
+    padding-top: 5px;
+    color: #6f2323;
 }
 

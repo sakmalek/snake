@@ -1,11 +1,7 @@
 class Snake {
     constructor() {
         this.direction = DIRECTION.RIGHT;
-        this.snakeUnits = [
-            {'x': 10, 'y': 50},
-            {'x': 20, 'y': 50},
-            {'x': 30, 'y': 50},
-        ]
+        this.snakeUnits = [...DEFAULT_SNAKE_UNIT];
     }
 
     draw() {
