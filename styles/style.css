@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Press Start 2P', cursive;
-    background-image: url("/assets/bg_snake_logo.png");
+    background-image: url("../assets/bg_snake_logo.png");
     background-size: 50px;
 
     display: flex;
@@ -16,13 +16,13 @@ body {
 
 canvas {
     border: 3px double black;
-    background-image: url("/assets/display.png");
+    background-image: url("../assets/display.png");
 }
 
 #scores {
     border: 3px double black;
     color: black;
-    background-image: url("/assets/display.png");
+    background-image: url("../assets/display.png");
     margin: 50px;
     height: 40px;
     width: 150px;

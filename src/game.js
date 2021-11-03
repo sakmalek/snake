@@ -87,7 +87,7 @@ class Game {
 
     changeBodyBackGroundImage(img, size) {
         document.body.style.backgroundSize = size;
-        document.body.style.backgroundImage = `url(/assets/${img})`;
+        document.body.style.backgroundImage = `url(../assets/${img})`;
     }
 
     resetSetting() {
