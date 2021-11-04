@@ -55,7 +55,7 @@ class Game {
         this.isGameOver = true;
         this.changeBodyBackGroundImage('bg_broken_nokia.jpg', "100px")
         document.querySelector('span#game-over').innerText = 'GAME OVER!';
-        document.querySelector('span#restart').innerText = 'Press tab to restart';
+        document.querySelector('span#restart').innerText = 'Press SPACE to restart';
     }
 
     increaseScore() {
@@ -92,7 +92,7 @@ class Game {
 
     resetSetting() {
         document.querySelector('span#game-over').innerText = '';
-        document.querySelector('span#restart').innerText = '(tab) stop/resume';
+        document.querySelector('span#restart').innerText = '(SPACE) stop/resume';
         this.snake.snakeUnits = [...DEFAULT_SNAKE_UNIT];
         this.score = 0;
         this.isGameOver = false;

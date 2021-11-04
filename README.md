@@ -5,8 +5,8 @@
 ## controls
 - **ARROW_UP**: move up
 - **ARROW_DOWN**: move down
-- **ARROW_RIGHT**: move right
-- **ARROW_LEFT**: move left
-- **TAB**: Stop and resume the game. Start a new game after game over.
+- **ARROW_RIGHT**: move to the right
+- **ARROW_LEFT**: move to the left left
+- **SPACE**: Stop and resume the game. Start a new game after game over.
 
 **HAVE FUN** 💙
